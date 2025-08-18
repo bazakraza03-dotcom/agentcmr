@@ -1,4 +1,5 @@
 "use client"
+export const dynamic = "force-dynamic"
 
 import { AuthGuard } from "@/components/auth-guard"
 import { DashboardLayout } from "@/components/dashboard-layout"

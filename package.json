@@ -10,7 +10,8 @@
     "start": "next start",
     "desktop:build": "node scripts/build.js",
     "desktop:build:lite": "node scripts/build-desktop.js",
-    "desktop:start": "electron ."
+    "desktop:start": "electron .",
+    "desktop:build:web": "next build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -60,6 +61,7 @@
     "react-day-picker": "9.8.0",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.60.0",
+    "react-is": "19.1.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "latest",
     "sonner": "^1.7.4",

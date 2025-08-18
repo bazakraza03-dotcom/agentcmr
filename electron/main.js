@@ -96,15 +96,22 @@ function createWindow() {
     show: false,
   })
 
-  const outIndexPath = path.join(__dirname, "../out/index.html")
-  const rendererPath = path.join(__dirname, "../renderer/index.html")
+  // Prefer running Next server (dev or prod) if available
+  const devUrl = process.env.AGENTCMR_URL || "http://localhost:3000"
+  const useUrl = process.env.AGENTCMR_USE_URL === "1"
 
-  if (fs.existsSync(outIndexPath)) {
-    mainWindow.loadFile(outIndexPath)
-  } else if (fs.existsSync(rendererPath)) {
-    mainWindow.loadFile(rendererPath)
+  if (useUrl) {
+    mainWindow.loadURL(devUrl)
   } else {
-    mainWindow.loadURL(createFallbackHTML())
+    const outIndexPath = path.join(__dirname, "../out/index.html")
+    const rendererPath = path.join(__dirname, "../renderer/index.html")
+    if (fs.existsSync(outIndexPath)) {
+      mainWindow.loadFile(outIndexPath)
+    } else if (fs.existsSync(rendererPath)) {
+      mainWindow.loadFile(rendererPath)
+    } else {
+      mainWindow.loadURL(createFallbackHTML())
+    }
   }
 
   mainWindow.once("ready-to-show", () => {
