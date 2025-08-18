@@ -1,0 +1,18 @@
+{
+  "name": "agentcmr-desktop",
+  "version": "1.0.0",
+  "description": "AgentCMR - Desktop Application for Insurance Agents",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-desktop.js",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --publish=never"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^32.0.1",
+    "electron-builder": "^25.0.5"
+  }
+}

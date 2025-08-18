@@ -1,0 +1,16 @@
+# AgentCMR - Python Desktop Application
+# No external dependencies required - uses only Python standard library
+# 
+# Built-in modules used:
+# - tkinter (GUI framework)
+# - sqlite3 (database)
+# - socket (networking)
+# - threading (multi-threading)
+# - hashlib (password hashing)
+# - json (data serialization)
+# - os (system operations)
+# - datetime (date/time handling)
+# - platform (system information)
+
+# To run the application:
+# python agentcmr.py
