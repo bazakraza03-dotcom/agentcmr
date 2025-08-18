@@ -6,7 +6,10 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "desktop:build": "node scripts/build.js",
+    "desktop:build:lite": "node scripts/build-desktop.js",
+    "desktop:start": "electron ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
