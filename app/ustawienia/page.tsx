@@ -1,4 +1,5 @@
-"use client"
+﻿"use client"
+export const dynamic = 'force-dynamic'
 
 import { useState, useEffect } from "react"
 import { DashboardLayout } from "@/components/dashboard-layout"
@@ -49,7 +50,7 @@ interface UserType {
 const mockUsers: UserType[] = [
   {
     id: "1",
-    name: "Michał Jasiński",
+    name: "MichaĹ‚ JasiĹ„ski",
     email: "michal@agentcmr.pl",
     role: "admin",
     isActive: true,
@@ -122,63 +123,63 @@ export default function SettingsPage() {
   const [userPermissions, setUserPermissions] = useState<Record<string, Record<string, boolean>>>({})
 
   const modulePermissions = {
-    dashboard: { view: "Podgląd dashboardu", edit: "Edycja dashboardu" },
+    dashboard: { view: "PodglÄ…d dashboardu", edit: "Edycja dashboardu" },
     clients: {
-      view: "Podgląd klientów",
-      create: "Dodawanie klientów",
-      edit: "Edycja klientów",
-      delete: "Usuwanie klientów",
+      view: "PodglÄ…d klientĂłw",
+      create: "Dodawanie klientĂłw",
+      edit: "Edycja klientĂłw",
+      delete: "Usuwanie klientĂłw",
     },
     policies: {
-      view: "Podgląd polis",
+      view: "PodglÄ…d polis",
       create: "Tworzenie polis",
       edit: "Edycja polis",
       delete: "Usuwanie polis",
       import: "Import polis",
     },
     vehicles: {
-      view: "Podgląd pojazdów",
-      create: "Dodawanie pojazdów",
-      edit: "Edycja pojazdów",
-      delete: "Usuwanie pojazdów",
+      view: "PodglÄ…d pojazdĂłw",
+      create: "Dodawanie pojazdĂłw",
+      edit: "Edycja pojazdĂłw",
+      delete: "Usuwanie pojazdĂłw",
     },
     payments: {
-      view: "Podgląd płatności",
-      create: "Dodawanie płatności",
-      edit: "Edycja płatności",
-      delete: "Usuwanie płatności",
+      view: "PodglÄ…d pĹ‚atnoĹ›ci",
+      create: "Dodawanie pĹ‚atnoĹ›ci",
+      edit: "Edycja pĹ‚atnoĹ›ci",
+      delete: "Usuwanie pĹ‚atnoĹ›ci",
     },
     renewals: {
-      view: "Podgląd wznowień",
-      create: "Tworzenie wznowień",
-      edit: "Edycja wznowień",
-      process: "Przetwarzanie wznowień",
+      view: "PodglÄ…d wznowieĹ„",
+      create: "Tworzenie wznowieĹ„",
+      edit: "Edycja wznowieĹ„",
+      process: "Przetwarzanie wznowieĹ„",
     },
     tasks: {
-      view: "Podgląd zadań",
-      create: "Tworzenie zadań",
-      edit: "Edycja zadań",
-      delete: "Usuwanie zadań",
-      assign: "Przypisywanie zadań",
+      view: "PodglÄ…d zadaĹ„",
+      create: "Tworzenie zadaĹ„",
+      edit: "Edycja zadaĹ„",
+      delete: "Usuwanie zadaĹ„",
+      assign: "Przypisywanie zadaĹ„",
     },
     reports: {
-      view: "Podgląd raportów",
-      create: "Tworzenie raportów",
-      export: "Eksport raportów",
+      view: "PodglÄ…d raportĂłw",
+      create: "Tworzenie raportĂłw",
+      export: "Eksport raportĂłw",
       advanced: "Zaawansowane raporty",
     },
-    communication: { view: "Podgląd komunikacji", send: "Wysyłanie wiadomości", templates: "Zarządzanie szablonami" },
+    communication: { view: "PodglÄ…d komunikacji", send: "WysyĹ‚anie wiadomoĹ›ci", templates: "ZarzÄ…dzanie szablonami" },
     settings: {
-      view: "Podgląd ustawień",
-      edit: "Edycja ustawień",
-      users: "Zarządzanie użytkownikami",
+      view: "PodglÄ…d ustawieĹ„",
+      edit: "Edycja ustawieĹ„",
+      users: "ZarzÄ…dzanie uĹĽytkownikami",
       system: "Ustawienia systemowe",
     },
   }
 
   const handleAddUser = () => {
     if (!newUser.name || !newUser.email || !newUser.password) {
-      alert("Wszystkie pola są wymagane")
+      alert("Wszystkie pola sÄ… wymagane")
       return
     }
 
@@ -423,14 +424,14 @@ export default function SettingsPage() {
 
         <Tabs defaultValue="general" className="space-y-6">
           <TabsList className="grid w-full grid-cols-8">
-            <TabsTrigger value="general">Ogólne</TabsTrigger>
+            <TabsTrigger value="general">OgĂłlne</TabsTrigger>
             <TabsTrigger value="users" disabled={!isAdmin}>
-              Użytkownicy
+              UĹĽytkownicy
             </TabsTrigger>
             <TabsTrigger value="autologin">Auto-login</TabsTrigger>
             <TabsTrigger value="communication">Komunikacja</TabsTrigger>
             <TabsTrigger value="desktop">Desktop</TabsTrigger>
-            <TabsTrigger value="network">Sieć LAN</TabsTrigger>
+            <TabsTrigger value="network">SieÄ‡ LAN</TabsTrigger>
             <TabsTrigger value="backup">Backup</TabsTrigger>
             <TabsTrigger value="license">Licencja</TabsTrigger>
           </TabsList>
@@ -440,21 +441,21 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Palette className="h-5 w-5" />
-                  Wygląd i interfejs
+                  WyglÄ…d i interfejs
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label htmlFor="dark-mode">Tryb ciemny</Label>
-                    <p className="text-sm text-muted-foreground">Przełącz na ciemny motyw interfejsu</p>
+                    <p className="text-sm text-muted-foreground">PrzeĹ‚Ä…cz na ciemny motyw interfejsu</p>
                   </div>
                   <Switch id="dark-mode" checked={darkMode} onCheckedChange={handleDarkModeChange} />
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
                     <Label htmlFor="notifications">Powiadomienia</Label>
-                    <p className="text-sm text-muted-foreground">Wyświetlaj powiadomienia systemowe</p>
+                    <p className="text-sm text-muted-foreground">WyĹ›wietlaj powiadomienia systemowe</p>
                   </div>
                   <Switch id="notifications" checked={notifications} onCheckedChange={setNotifications} />
                 </div>
@@ -471,7 +472,7 @@ export default function SettingsPage() {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="language">Język interfejsu</Label>
+                    <Label htmlFor="language">JÄ™zyk interfejsu</Label>
                     <Select defaultValue="pl">
                       <SelectTrigger>
                         <SelectValue />
@@ -507,11 +508,11 @@ export default function SettingsPage() {
                     <CardTitle className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Users className="h-5 w-5" />
-                        Zarządzanie użytkownikami
+                        ZarzÄ…dzanie uĹĽytkownikami
                       </div>
                       <Button onClick={() => setShowAddUserModal(true)}>
                         <UserIcon className="h-4 w-4 mr-2" />
-                        Dodaj użytkownika
+                        Dodaj uĹĽytkownika
                       </Button>
                     </CardTitle>
                   </CardHeader>
@@ -531,7 +532,7 @@ export default function SettingsPage() {
                           </div>
                           <div className="flex items-center gap-4">
                             <Badge variant={getRoleBadgeVariant(user.role)}>
-                              {user.role === "admin" ? "Administrator" : user.role === "agent" ? "Agent" : "Stażysta"}
+                              {user.role === "admin" ? "Administrator" : user.role === "agent" ? "Agent" : "StaĹĽysta"}
                             </Badge>
                             <Select value={user.role} onValueChange={(value: any) => handleRoleChange(user.id, value)}>
                               <SelectTrigger className="w-32">
@@ -540,7 +541,7 @@ export default function SettingsPage() {
                               <SelectContent>
                                 <SelectItem value="admin">Administrator</SelectItem>
                                 <SelectItem value="agent">Agent</SelectItem>
-                                <SelectItem value="intern">Stażysta</SelectItem>
+                                <SelectItem value="intern">StaĹĽysta</SelectItem>
                               </SelectContent>
                             </Select>
                             <Switch checked={user.isActive} onCheckedChange={() => handleUserToggle(user.id)} />
@@ -553,7 +554,7 @@ export default function SettingsPage() {
                               }}
                               className="text-red-600 hover:text-red-700"
                             >
-                              Usuń
+                              UsuĹ„
                             </Button>
                           </div>
                         </div>
@@ -566,7 +567,7 @@ export default function SettingsPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Shield className="h-5 w-5" />
-                      Szczegółowe uprawnienia użytkowników
+                      SzczegĂłĹ‚owe uprawnienia uĹĽytkownikĂłw
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -580,7 +581,7 @@ export default function SettingsPage() {
                             <div>
                               <div className="font-medium">{user.name}</div>
                               <Badge variant={getRoleBadgeVariant(user.role)} className="text-xs">
-                                {user.role === "admin" ? "Administrator" : user.role === "agent" ? "Agent" : "Stażysta"}
+                                {user.role === "admin" ? "Administrator" : user.role === "agent" ? "Agent" : "StaĹĽysta"}
                               </Badge>
                             </div>
                           </div>
@@ -616,7 +617,7 @@ export default function SettingsPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Shield className="h-5 w-5" />
-                      Uprawnienia ról - przegląd
+                      Uprawnienia rĂłl - przeglÄ…d
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -624,37 +625,37 @@ export default function SettingsPage() {
                       <div className="space-y-2">
                         <h4 className="font-semibold text-red-600">Administrator</h4>
                         <ul className="text-sm space-y-1">
-                          <li>• Pełny dostęp do systemu</li>
-                          <li>• Zarządzanie użytkownikami</li>
-                          <li>• Konfiguracja systemu</li>
-                          <li>• Backup i przywracanie</li>
-                          <li>• Zarządzanie licencjami</li>
-                          <li>• Wszystkie uprawnienia modułów</li>
-                          <li>• Zarządzanie uprawnieniami</li>
+                          <li>â€˘ PeĹ‚ny dostÄ™p do systemu</li>
+                          <li>â€˘ ZarzÄ…dzanie uĹĽytkownikami</li>
+                          <li>â€˘ Konfiguracja systemu</li>
+                          <li>â€˘ Backup i przywracanie</li>
+                          <li>â€˘ ZarzÄ…dzanie licencjami</li>
+                          <li>â€˘ Wszystkie uprawnienia moduĹ‚Ăłw</li>
+                          <li>â€˘ ZarzÄ…dzanie uprawnieniami</li>
                         </ul>
                       </div>
                       <div className="space-y-2">
                         <h4 className="font-semibold">Agent</h4>
                         <ul className="text-sm space-y-1">
-                          <li>• Zarządzanie polisami</li>
-                          <li>• Obsługa klientów</li>
-                          <li>• Generowanie raportów</li>
-                          <li>• Komunikacja elektroniczna</li>
-                          <li>• Zarządzanie zadaniami</li>
-                          <li>• Przetwarzanie wznowień</li>
-                          <li>• Zaawansowane funkcje</li>
+                          <li>â€˘ ZarzÄ…dzanie polisami</li>
+                          <li>â€˘ ObsĹ‚uga klientĂłw</li>
+                          <li>â€˘ Generowanie raportĂłw</li>
+                          <li>â€˘ Komunikacja elektroniczna</li>
+                          <li>â€˘ ZarzÄ…dzanie zadaniami</li>
+                          <li>â€˘ Przetwarzanie wznowieĹ„</li>
+                          <li>â€˘ Zaawansowane funkcje</li>
                         </ul>
                       </div>
                       <div className="space-y-2">
-                        <h4 className="font-semibold text-gray-600">Stażysta</h4>
+                        <h4 className="font-semibold text-gray-600">StaĹĽysta</h4>
                         <ul className="text-sm space-y-1">
-                          <li>• Podgląd polis (ograniczony)</li>
-                          <li>• Podstawowa obsługa klientów</li>
-                          <li>• Tworzenie zadań</li>
-                          <li>• Podstawowe raporty</li>
-                          <li>• Brak dostępu do ustawień</li>
-                          <li>• Brak usuwania danych</li>
-                          <li>• Nadzorowana praca</li>
+                          <li>â€˘ PodglÄ…d polis (ograniczony)</li>
+                          <li>â€˘ Podstawowa obsĹ‚uga klientĂłw</li>
+                          <li>â€˘ Tworzenie zadaĹ„</li>
+                          <li>â€˘ Podstawowe raporty</li>
+                          <li>â€˘ Brak dostÄ™pu do ustawieĹ„</li>
+                          <li>â€˘ Brak usuwania danych</li>
+                          <li>â€˘ Nadzorowana praca</li>
                         </ul>
                       </div>
                     </div>
@@ -664,10 +665,10 @@ export default function SettingsPage() {
                 {showAddUserModal && (
                   <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                     <div className="bg-white rounded-lg p-6 w-full max-w-md">
-                      <h3 className="text-lg font-semibold mb-4">Dodaj nowego użytkownika</h3>
+                      <h3 className="text-lg font-semibold mb-4">Dodaj nowego uĹĽytkownika</h3>
                       <div className="space-y-4">
                         <div>
-                          <Label htmlFor="new-user-name">Imię i nazwisko</Label>
+                          <Label htmlFor="new-user-name">ImiÄ™ i nazwisko</Label>
                           <Input
                             id="new-user-name"
                             value={newUser.name}
@@ -697,18 +698,18 @@ export default function SettingsPage() {
                             <SelectContent>
                               <SelectItem value="admin">Administrator</SelectItem>
                               <SelectItem value="agent">Agent</SelectItem>
-                              <SelectItem value="intern">Stażysta</SelectItem>
+                              <SelectItem value="intern">StaĹĽysta</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                         <div>
-                          <Label htmlFor="new-user-password">Hasło</Label>
+                          <Label htmlFor="new-user-password">HasĹ‚o</Label>
                           <Input
                             id="new-user-password"
                             type="password"
                             value={newUser.password}
                             onChange={(e) => setNewUser((prev) => ({ ...prev, password: e.target.value }))}
-                            placeholder="••••••••"
+                            placeholder="â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘"
                           />
                         </div>
                       </div>
@@ -716,7 +717,7 @@ export default function SettingsPage() {
                         <Button variant="outline" onClick={() => setShowAddUserModal(false)}>
                           Anuluj
                         </Button>
-                        <Button onClick={handleAddUser}>Dodaj użytkownika</Button>
+                        <Button onClick={handleAddUser}>Dodaj uĹĽytkownika</Button>
                       </div>
                     </div>
                   </div>
@@ -725,9 +726,9 @@ export default function SettingsPage() {
                 {showDeleteUserModal && userToDelete && (
                   <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                     <div className="bg-white rounded-lg p-6 w-full max-w-md">
-                      <h3 className="text-lg font-semibold mb-4 text-red-600">Usuń użytkownika</h3>
+                      <h3 className="text-lg font-semibold mb-4 text-red-600">UsuĹ„ uĹĽytkownika</h3>
                       <p className="mb-4">
-                        Czy na pewno chcesz usunąć użytkownika <strong>{userToDelete.name}</strong>? Ta operacja jest
+                        Czy na pewno chcesz usunÄ…Ä‡ uĹĽytkownika <strong>{userToDelete.name}</strong>? Ta operacja jest
                         nieodwracalna.
                       </p>
                       <div className="flex justify-end gap-2">
@@ -735,7 +736,7 @@ export default function SettingsPage() {
                           Anuluj
                         </Button>
                         <Button variant="destructive" onClick={handleDeleteUser}>
-                          Usuń użytkownika
+                          UsuĹ„ uĹĽytkownika
                         </Button>
                       </div>
                     </div>
@@ -746,9 +747,9 @@ export default function SettingsPage() {
               <Card>
                 <CardContent className="p-8 text-center">
                   <Shield className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-                  <h3 className="text-lg font-semibold mb-2">Brak uprawnień</h3>
+                  <h3 className="text-lg font-semibold mb-2">Brak uprawnieĹ„</h3>
                   <p className="text-muted-foreground">
-                    Tylko administratorzy mogą zarządzać użytkownikami i uprawnieniami.
+                    Tylko administratorzy mogÄ… zarzÄ…dzaÄ‡ uĹĽytkownikami i uprawnieniami.
                   </p>
                 </CardContent>
               </Card>
@@ -766,7 +767,7 @@ export default function SettingsPage() {
               <CardContent className="space-y-6">
                 <div className="flex justify-between items-center mb-4">
                   <p className="text-sm text-muted-foreground">
-                    Konfiguracje są automatycznie zapisywane. Możesz również zapisać ręcznie.
+                    Konfiguracje sÄ… automatycznie zapisywane. MoĹĽesz rĂłwnieĹĽ zapisaÄ‡ rÄ™cznie.
                   </p>
                   <Button onClick={saveAutoLoginConfigs} variant="outline">
                     Zapisz wszystkie konfiguracje
@@ -814,18 +815,18 @@ export default function SettingsPage() {
                               />
                             </div>
                             <div>
-                              <Label htmlFor={`${company.id}-password`}>Hasło</Label>
+                              <Label htmlFor={`${company.id}-password`}>HasĹ‚o</Label>
                               <Input
                                 id={`${company.id}-password`}
                                 type="password"
                                 value={config.password}
                                 onChange={(e) => handleAutoLoginChange(company.id, "password", e.target.value)}
-                                placeholder="••••••••"
+                                placeholder="â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘"
                               />
                             </div>
                           </div>
                           <Button size="sm" variant="outline">
-                            Testuj połączenie
+                            Testuj poĹ‚Ä…czenie
                           </Button>
                         </div>
                       )}
@@ -847,8 +848,8 @@ export default function SettingsPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Label>Włącz bramkę SMS</Label>
-                    <p className="text-sm text-muted-foreground">Konfiguracja wysyłania wiadomości SMS</p>
+                    <Label>WĹ‚Ä…cz bramkÄ™ SMS</Label>
+                    <p className="text-sm text-muted-foreground">Konfiguracja wysyĹ‚ania wiadomoĹ›ci SMS</p>
                   </div>
                   <Switch checked={smsGatewayEnabled} onCheckedChange={setSmsGatewayEnabled} />
                 </div>
@@ -869,12 +870,12 @@ export default function SettingsPage() {
                       <Input
                         id="sms-api-key"
                         type="password"
-                        placeholder="••••••••••••••••"
+                        placeholder="â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘"
                         value={smsGatewayApiKey}
                         onChange={(e) => setSmsGatewayApiKey(e.target.value)}
                       />
                     </div>
-                    <Button>Testuj połączenie SMS</Button>
+                    <Button>Testuj poĹ‚Ä…czenie SMS</Button>
                   </div>
                 )}
               </CardContent>
@@ -890,8 +891,8 @@ export default function SettingsPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Label>Włącz bramkę e-mail</Label>
-                    <p className="text-sm text-muted-foreground">Konfiguracja serwera SMTP do wysyłania e-maili</p>
+                    <Label>WĹ‚Ä…cz bramkÄ™ e-mail</Label>
+                    <p className="text-sm text-muted-foreground">Konfiguracja serwera SMTP do wysyĹ‚ania e-maili</p>
                   </div>
                   <Switch checked={emailGatewayEnabled} onCheckedChange={setEmailGatewayEnabled} />
                 </div>
@@ -920,7 +921,7 @@ export default function SettingsPage() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="email-username">Nazwa użytkownika</Label>
+                        <Label htmlFor="email-username">Nazwa uĹĽytkownika</Label>
                         <Input
                           id="email-username"
                           placeholder="twoj@email.com"
@@ -929,17 +930,17 @@ export default function SettingsPage() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email-password">Hasło</Label>
+                        <Label htmlFor="email-password">HasĹ‚o</Label>
                         <Input
                           id="email-password"
                           type="password"
-                          placeholder="••••••••"
+                          placeholder="â€˘â€˘â€˘â€˘â€˘â€˘â€˘â€˘"
                           value={emailPassword}
                           onChange={(e) => setEmailPassword(e.target.value)}
                         />
                       </div>
                     </div>
-                    <Button>Testuj połączenie e-mail</Button>
+                    <Button>Testuj poĹ‚Ä…czenie e-mail</Button>
                   </div>
                 )}
               </CardContent>
@@ -961,7 +962,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Automatyczne uruchamianie</Label>
-                    <p className="text-sm text-muted-foreground">Uruchom aplikację przy starcie systemu</p>
+                    <p className="text-sm text-muted-foreground">Uruchom aplikacjÄ™ przy starcie systemu</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.autoStart}
@@ -971,7 +972,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Uruchom zminimalizowane</Label>
-                    <p className="text-sm text-muted-foreground">Aplikacja uruchamia się w tle</p>
+                    <p className="text-sm text-muted-foreground">Aplikacja uruchamia siÄ™ w tle</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.startMinimized}
@@ -981,7 +982,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Minimalizacja do zasobnika</Label>
-                    <p className="text-sm text-muted-foreground">Minimalizuj do paska zadań zamiast zamykania</p>
+                    <p className="text-sm text-muted-foreground">Minimalizuj do paska zadaĹ„ zamiast zamykania</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.minimizeToTray}
@@ -991,7 +992,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Zamknij do zasobnika</Label>
-                    <p className="text-sm text-muted-foreground">Kliknięcie X minimalizuje zamiast zamykać</p>
+                    <p className="text-sm text-muted-foreground">KlikniÄ™cie X minimalizuje zamiast zamykaÄ‡</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.closeToTray}
@@ -1001,7 +1002,7 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Ikona w zasobniku systemowym</Label>
-                    <p className="text-sm text-muted-foreground">Pokaż ikonę w prawym dolnym rogu</p>
+                    <p className="text-sm text-muted-foreground">PokaĹĽ ikonÄ™ w prawym dolnym rogu</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.systemTrayIcon}
@@ -1015,14 +1016,14 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Chrome className="h-5 w-5" />
-                  Przeglądarka i interfejs
+                  PrzeglÄ…darka i interfejs
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Label>Przeglądarka wbudowana</Label>
-                    <p className="text-sm text-muted-foreground">Włącz wbudowaną przeglądarkę w prawym panelu</p>
+                    <Label>PrzeglÄ…darka wbudowana</Label>
+                    <p className="text-sm text-muted-foreground">WĹ‚Ä…cz wbudowanÄ… przeglÄ…darkÄ™ w prawym panelu</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.builtInBrowser}
@@ -1039,15 +1040,15 @@ export default function SettingsPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="remember">Zapamiętaj ostatnią pozycję</SelectItem>
-                      <SelectItem value="center">Wyśrodkuj na ekranie</SelectItem>
+                      <SelectItem value="remember">ZapamiÄ™taj ostatniÄ… pozycjÄ™</SelectItem>
+                      <SelectItem value="center">WyĹ›rodkuj na ekranie</SelectItem>
                       <SelectItem value="maximized">Zmaksymalizowane</SelectItem>
                       <SelectItem value="custom">Niestandardowa pozycja</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="default-browser">Domyślna przeglądarka zewnętrzna</Label>
+                  <Label htmlFor="default-browser">DomyĹ›lna przeglÄ…darka zewnÄ™trzna</Label>
                   <div className="flex gap-2">
                     <Input
                       id="default-browser"
@@ -1067,14 +1068,14 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Bell className="h-5 w-5" />
-                  Powiadomienia i dźwięki
+                  Powiadomienia i dĹşwiÄ™ki
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Label>Powiadomienia dźwiękowe</Label>
-                    <p className="text-sm text-muted-foreground">Odtwarzaj dźwięki dla powiadomień</p>
+                    <Label>Powiadomienia dĹşwiÄ™kowe</Label>
+                    <p className="text-sm text-muted-foreground">Odtwarzaj dĹşwiÄ™ki dla powiadomieĹ„</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.soundNotifications}
@@ -1098,14 +1099,14 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Key className="h-5 w-5" />
-                  Skróty klawiszowe
+                  SkrĂłty klawiszowe
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <Label>Włącz skróty klawiszowe</Label>
-                    <p className="text-sm text-muted-foreground">Globalne skróty klawiszowe dla szybkiego dostępu</p>
+                    <Label>WĹ‚Ä…cz skrĂłty klawiszowe</Label>
+                    <p className="text-sm text-muted-foreground">Globalne skrĂłty klawiszowe dla szybkiego dostÄ™pu</p>
                   </div>
                   <Switch
                     checked={desktopFeatures.enableHotkeys}
@@ -1134,7 +1135,7 @@ export default function SettingsPage() {
                       </div>
                     </div>
                     <div>
-                      <Label htmlFor="hotkey-task-planner">Planer zadań</Label>
+                      <Label htmlFor="hotkey-task-planner">Planer zadaĹ„</Label>
                       <Input
                         id="hotkey-task-planner"
                         value={desktopFeatures.hotkeyTaskPlanner}
@@ -1150,7 +1151,7 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Folder className="h-5 w-5" />
-                  Ścieżki i logi
+                  ĹšcieĹĽki i logi
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -1178,15 +1179,15 @@ export default function SettingsPage() {
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="error">Tylko błędy</SelectItem>
-                        <SelectItem value="warn">Ostrzeżenia i błędy</SelectItem>
+                        <SelectItem value="error">Tylko bĹ‚Ä™dy</SelectItem>
+                        <SelectItem value="warn">OstrzeĹĽenia i bĹ‚Ä™dy</SelectItem>
                         <SelectItem value="info">Informacje</SelectItem>
                         <SelectItem value="debug">Debugowanie</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
-                    <Label htmlFor="max-log-files">Maksymalna liczba plików logów</Label>
+                    <Label htmlFor="max-log-files">Maksymalna liczba plikĂłw logĂłw</Label>
                     <Input
                       id="max-log-files"
                       type="number"
@@ -1198,7 +1199,7 @@ export default function SettingsPage() {
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm">
                     <Folder className="h-4 w-4 mr-2" />
-                    Otwórz katalog logów
+                    OtwĂłrz katalog logĂłw
                   </Button>
                   <Button variant="outline" size="sm">
                     <Download className="h-4 w-4 mr-2" />
@@ -1246,14 +1247,14 @@ export default function SettingsPage() {
                     <Input id="port" defaultValue="8080" />
                   </div>
                   <div>
-                    <Label htmlFor="max-connections">Maksymalna liczba połączeń</Label>
+                    <Label htmlFor="max-connections">Maksymalna liczba poĹ‚Ä…czeĹ„</Label>
                     <Input id="max-connections" defaultValue="10" disabled={serverMode === "client"} />
                   </div>
                 </div>
                 <div className="flex items-center gap-2 p-4 bg-muted rounded-lg">
                   <Wifi className="h-5 w-5 text-green-500" />
                   <span className="text-sm">
-                    Status: {serverMode === "server" ? "Serwer aktywny" : "Połączony z serwerem"}
+                    Status: {serverMode === "server" ? "Serwer aktywny" : "PoĹ‚Ä…czony z serwerem"}
                   </span>
                 </div>
                 <div className="flex justify-end">
@@ -1292,11 +1293,11 @@ export default function SettingsPage() {
                 <div className="flex gap-2">
                   <Button className="flex-1">
                     <Download className="h-4 w-4 mr-2" />
-                    Utwórz backup
+                    UtwĂłrz backup
                   </Button>
                   <Button variant="outline" className="flex-1 bg-transparent">
                     <Upload className="h-4 w-4 mr-2" />
-                    Przywróć z backupu
+                    PrzywrĂłÄ‡ z backupu
                   </Button>
                 </div>
               </CardContent>
@@ -1308,31 +1309,31 @@ export default function SettingsPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Key className="h-5 w-5" />
-                  Zarządzanie licencją
+                  ZarzÄ…dzanie licencjÄ…
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>System licencji</Label>
-                    <p className="text-sm text-muted-foreground">Włącz weryfikację licencji (obecnie wyłączone)</p>
+                    <p className="text-sm text-muted-foreground">WĹ‚Ä…cz weryfikacjÄ™ licencji (obecnie wyĹ‚Ä…czone)</p>
                   </div>
                   <Switch checked={licenseEnabled} onCheckedChange={setLicenseEnabled} disabled />
                 </div>
                 <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <Key className="h-4 w-4 text-yellow-600" />
-                    <span className="font-medium text-yellow-800">Status licencji: Wyłączona</span>
+                    <span className="font-medium text-yellow-800">Status licencji: WyĹ‚Ä…czona</span>
                   </div>
                   <p className="text-sm text-yellow-700">
-                    System licencji jest obecnie wyłączony zgodnie z konfiguracją. Wszystkie funkcje są dostępne bez
-                    ograniczeń.
+                    System licencji jest obecnie wyĹ‚Ä…czony zgodnie z konfiguracjÄ…. Wszystkie funkcje sÄ… dostÄ™pne bez
+                    ograniczeĹ„.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="license-key">Klucz licencyjny</Label>
-                  <Input id="license-key" placeholder="Wprowadź klucz licencyjny..." disabled />
-                  <Button disabled>Aktywuj licencję</Button>
+                  <Input id="license-key" placeholder="WprowadĹş klucz licencyjny..." disabled />
+                  <Button disabled>Aktywuj licencjÄ™</Button>
                 </div>
               </CardContent>
             </Card>

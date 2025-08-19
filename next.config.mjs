@@ -1,18 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  distDir: 'out',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-  },
-  assetPrefix: './',
-}
-
-export default nextConfig
+﻿export default /** @type {import('next').NextConfig} */ ({
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  images: { unoptimized: true },
+});
