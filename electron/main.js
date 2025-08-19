@@ -248,6 +248,20 @@ function createFallbackHTML() {
 }
 
 app.whenReady().then(() => {
+  // If running in Server mode, start API server
+  try {
+    const mode = process.env.AGENTCMR_MODE || 'standalone'
+    if (mode === 'server') {
+      const { createServer } = require('./server')
+      const dbPath = path.join(app.getPath('userData'), 'agentcmr.db')
+      const port = parseInt(process.env.AGENTCMR_PORT || '8080', 10)
+      const host = '0.0.0.0'
+      createServer({ dbPath, port, host })
+    }
+  } catch (e) {
+    console.error('Failed to start internal API server:', e)
+  }
+
   createWindow()
 
   app.on("activate", () => {
